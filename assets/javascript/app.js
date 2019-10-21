@@ -100,7 +100,23 @@ function gameGo() {
 }
 
 //create function timerSeconds
-
+function timerSeconds() {
 //create if or else statements within timerSeconds function
+    if(secondsLeft < 0) {
+        $('#gamePanal').toggle();
+        $('#allDone').toggle();
+        gotRight = 0;
+        gotWrong = 0;
+        $('#right').html(gotRight);
+        $('#wrong').html(gotWrong);
+        clearInterval(timerHandle);
+    } else {
+        $('#timer').html(secondsLeft);
+        secondsLeft = secondsLeft -1;
+    }    
+}
+
+
+
 
 //create function gameSubmit
