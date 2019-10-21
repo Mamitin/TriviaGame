@@ -20,7 +20,15 @@ var questionList = [
     {question:"How old is Bart Simpson?",
      possibilities: ['10', '12', '11'],
      answer: 0
-    }
+},
+    {question:"Which one of these is not a catchphrase bart uses?",
+     possibilities: ['Aye Carumba!', 'Dont have a cow, man!', 'Woohoo!'],
+     answer: 2
+},
+    {question:"What is the name of the Simpsons next door neighbor?",
+     possibilities: ['Barney Gumble', 'Ned Flanders', 'Principal Skinner'],
+     answer: 1
+},
 
 
 ]
