@@ -13,7 +13,14 @@ var questionList = [
     //create answer to question
         answer: 0
 },
-
+    {question:"In which town do the Simpsons reside?",
+     possibilities: ['Shelbyville', 'Springfield', 'Seinfeld'],
+     answer: 1
+},
+    {question:"How old is Bart Simpson?",
+     possibilities: ['10', '12', '11'],
+     answer: 0
+    }
 
 
 ]
