@@ -18,22 +18,22 @@ $(document).ready(function () {
 
 //create funtion startGame
 function startGame() {
-    var questionEl = '';
-    var elPossibilities = [];
-    //create for loop to iterate through the question & possibilities
-    for (i = 0; < questionList.length; i++) {
-        questionEl += '<div class="question" id="q' + i + '">' + questionList[i].question;
-        elPossibilities = questionList[i].possibilities;
-        for (j = 0; j < elPossibilities.length; j++) {
-            questionEl += '<input type="radio" class="i' + i + '" value="' + j + '">' + elPossibilities[j] + '</input>';
-        }
-
-        questionEl += '</div>';
-        //console.log(questionEl);
+var questionEl = '';
+var elPossibilities = [];
+//create for loop to iterate through the question & possibilities
+for (i = 0; i < questionList.length; i++) {
+    questionEl += '<div class="question" id="q' + i + '">' + questionList[i].question;
+    elPossibilities = questionList[i].possibilities;
+    for (j = 0; j < elPossibilities.length; j++) {
+         questionEl += '<input type="radio" class="i' + i + '" value="' + j + '">' + elPossibilities[j] + '</input>';
     }
 
-    question += '<button id="answer">Answer</button>';
-    $('#questions').html(questionEl);
+    questionEl += '</div>';
+    //console.log(questionEl);
+}
+questionEl += '<button id="answer">Answer</button>';
+$('#questions').html(questionEl);
+
 }
 
 //create var for question list
@@ -86,6 +86,7 @@ var questionList = [
         possibilities: ['Gabbo', 'Krusty', 'Bonko'],
         answer: 1
 }]
+
 
 //create function gameListeners
 function gameListeners() {
