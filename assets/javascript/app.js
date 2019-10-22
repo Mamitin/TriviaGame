@@ -116,7 +116,23 @@ function timerSeconds() {
     }    
 }
 
-
-
-
 //create function gameSubmit
+function gameSubmit () {
+    var checkedAnswer;
+    for (k = 0; k < questionList.length; k++) {
+        checkedAnswer = $('.i'+k+':checked');
+        console.log(checkedAnswer);
+        console.log(checkedAnswer.val());
+        if(checkedAnswer.val() == questionList[k].answer) {
+            gotRight++;
+        } else {
+            gotWrong++;
+        }
+    }
+    $('#gamePanel').toggle();
+    $('#allDone').toggle();
+    $('#right').html(gotRight);
+    $('#wrong').html(gotWrong);
+    gotRight = 0;
+    gotWrong = 0;
+}
