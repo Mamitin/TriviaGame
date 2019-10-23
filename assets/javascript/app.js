@@ -1,7 +1,7 @@
 //create vars
 var gotRight = 0;
 var gotWrong = 0;
-var secondsLeft = 10;
+var secondsLeft = 60;
 var timerHandle;
 
 //start game after page finishes loading
@@ -24,14 +24,14 @@ var questionEl = '';
 var elPossibilities = [];
 //create for loop to iterate through the question & possibilities
 for (i = 0; i < questionList.length; i++) {''
-    questionEl += '<div class="question" id="q' + i + '">' + questionList[i].question + "</br>";
-    elPossibilities = questionList[i].possibilities;
-    for (j = 0; j < elPossibilities.length; j++) {
-         questionEl +=  '<input type="radio" class="i' + i + '" value="' + j + '">' + elPossibilities[j] + '</input>' + " ";
-   
-        }
-
-    questionEl += '</div>';
+questionEl += '<div class="question" id="q' + i + '">' + questionList[i].question + "</br>";
+elPossibilities = questionList[i].possibilities;
+for (j = 0; j < elPossibilities.length; j++) {
+    questionEl +=  '<input type="radio" class="i' + i + '" value="' + j + '">' + elPossibilities[j] + '</input>' + " ";
+}
+timerSeconds();    
+    
+questionEl += '</div>';
     //console.log(questionEl);
 }
 questionEl += '<button id="answer">Answer</button>';
@@ -107,6 +107,7 @@ function gameGo() {
 
 //create function timerSeconds
 function timerSeconds() {
+    //setTimeout(timerSeconds, 1000);
     console.log("timerSeconds works");
 //create if or else statements within timerSeconds function
     if(secondsLeft < 0) {
