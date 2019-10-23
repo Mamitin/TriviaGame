@@ -23,7 +23,7 @@ function startGame() {
 var questionEl = '';
 var elPossibilities = [];
 //create for loop to iterate through the question & possibilities
-for (i = 0; i < questionList.length; i++) {
+for (i = 0; i < questionList.length; i++) {''
     questionEl += '<div class="question" id="q' + i + '">' + questionList[i].question + "</br>";
     elPossibilities = questionList[i].possibilities;
     for (j = 0; j < elPossibilities.length; j++) {
