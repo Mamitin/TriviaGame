@@ -7,26 +7,29 @@ var timerHandle;
 //start game after page finishes loading
 $(document).ready(function () {
     //create toggle
-    $('#gamePanel').toggle();
+    $('#questions').toggle();
+    $('.allDone').toggle();
     //call startGame function
     startGame();
     //call gameListeners function
     gameListeners();
     //call gameGo
-    gameGo();
+    //gameGo();
 })
 
 //create funtion startGame
 function startGame() {
+    console.log("startGame works");
 var questionEl = '';
 var elPossibilities = [];
 //create for loop to iterate through the question & possibilities
 for (i = 0; i < questionList.length; i++) {
-    questionEl += '<div class="question" id="q' + i + '">' + questionList[i].question;
+    questionEl += '<div class="question" id="q' + i + '">' + questionList[i].question + "</br>";
     elPossibilities = questionList[i].possibilities;
     for (j = 0; j < elPossibilities.length; j++) {
-         questionEl += '<input type="radio" class="i' + i + '" value="' + j + '">' + elPossibilities[j] + '</input>';
-    }
+         questionEl +=  '<input type="radio" class="i' + i + '" value="' + j + '">' + elPossibilities[j] + '</input>' + " ";
+   
+        }
 
     questionEl += '</div>';
     //console.log(questionEl);
@@ -77,7 +80,7 @@ var questionList = [
         answer: 0
     },
     {
-        question: "What is the name if the school bus driver?",
+        question: "What is the name of the school bus driver?",
         possibilities: ['Otto', 'Martin', 'Cletus'],
         answer: 0
     },
@@ -90,21 +93,24 @@ var questionList = [
 
 //create function gameListeners
 function gameListeners() {
+    console.log("gameListeners works");
 $('#answer').click(gameSubmit);
 $('#startButton').click(gameGo);
 }
 
 //create function gameGo
 function gameGo() {
+    console.log("gameGo works");
     $('#splash').toggle();
-    $('#gamePanel').toggle();
+    $('#questions').toggle();
 }
 
 //create function timerSeconds
 function timerSeconds() {
+    console.log("timerSeconds works");
 //create if or else statements within timerSeconds function
     if(secondsLeft < 0) {
-        $('#gamePanal').toggle();
+        $('#gamePanel').toggle();
         $('#allDone').toggle();
         gotRight = 0;
         gotWrong = 0;
@@ -119,6 +125,7 @@ function timerSeconds() {
 
 //create function gameSubmit
 function gameSubmit () {
+    console.log("gameSubmit works");
     var checkedAnswer;
     for (k = 0; k < questionList.length; k++) {
         checkedAnswer = $('.i'+k+':checked');
@@ -130,8 +137,8 @@ function gameSubmit () {
             gotWrong++;
         }
     }
-    $('#gamePanel').toggle();
-    $('#allDone').toggle();
+    $('#questions').toggle();
+    $('.allDone').toggle();
     $('#right').html(gotRight);
     $('#wrong').html(gotWrong);
     gotRight = 0;
