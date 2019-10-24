@@ -10,27 +10,46 @@ body {
 #container {
     text-align: center;
     color: orange;
-    font-family: cursive;
+    font-family: 'Rock Salt', cursive;
     background: rgba(237, 237, 243, .7);
-    width: 90%;
+    width: 100%;
     border-radius: 5px;
     margin-left: 5%;
-    padding-top: 50px;
+   /*padding-top: 50px;*/
     margin-top: 50px;
     border: 5px;
 }
 
 #questions {
     text-align: center;
-    font-family: cursive;
     color: black;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bolder;
+    font-family: 'Rock Salt', cursive;
     background: rgba(237, 237, 243, .7);
-    padding-top: 10px;
-    padding-bottom: 10px;
+    width: 90%;
+    border-radius: 5px;
+    margin-left: 5%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    border: 5px;
+    line-height: 300%;
+    word-spacing: 20px;
+    letter-spacing: 2px;
+    /*text-shadow:
+		-1px -1px 0 orange,
+		1px -1px 0 orange,
+		-1px 1px 0 orange,
+		1px 1px 0 orange;*/
 }
 
 #startButton {
     background: sandybrown;
+}
+
+#answer {
+    background: sandybrown;
+    margin-top: 40px;
 }
