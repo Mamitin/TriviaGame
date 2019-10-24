@@ -2,7 +2,7 @@
 var gotRight = 0;
 var gotWrong = 0;
 var unanswered = 0;
-var secondsLeft = 60;
+var secondsLeft = 7;
 var timerHandle;
 
 //start game after page finishes loading
@@ -14,8 +14,6 @@ $(document).ready(function () {
     startGame();
     //call gameListeners function
     gameListeners();
-    //call gameGo
-    //gameGo();
 })
 
 //create funtion startGame
@@ -31,11 +29,10 @@ function startGame() {
         for (j = 0; j < elPossibilities.length; j++) {
             questionEl += '<input type="radio" class="i' + i + '" value="' + j + '">' + elPossibilities[j] + '</input>' + " ";
         }
-        
         questionEl += '</div>';
         //console.log(questionEl);
     }
-    //timerSeconds();
+
 
 
     questionEl += '<button id="answer">Answer</button>';
@@ -98,7 +95,7 @@ var questionList = [
 //create function gameListeners
 function gameListeners() {
     console.log("gameListeners works");
-    $('#answer').click(gameSubmit);
+    $('#answer').click(gameDone);
     $('#startButton').click(gameGo);
 }
 
@@ -107,48 +104,50 @@ function gameGo() {
     console.log("gameGo works");
     $('#splash').toggle();
     $('#questions').toggle();
+    timerSeconds();
 }
 
-//create function timerSeconds
-/*function timerSeconds() {
-    //setTimeout(timerSeconds, 1000);
-    console.log("timerSeconds works");
-    //create if or else statements within timerSeconds function
-    if (secondsLeft < 0) {
-        intervalId = setInterval(timer.count, 60000);
-        $('#gamePanel').toggle();
-        $('#allDone').toggle();
-        gotRight = 0;
-        gotWrong = 0;
-        $('#right').html(gotRight);
-        $('#wrong').html(gotWrong);
-        clearInterval(timerHandle);
-    } else {
-        $('#timer').html(secondsLeft);
-        secondsLeft = secondsLeft - 1;
-    }
-}*/
 
-//create function gameSubmit
-function gameSubmit() {
-    console.log("gameSubmit works");
+//create function for countdown
+function timerSeconds() {
+    timerHandle = setInterval(countTimerSeconds, 1000)
+}
+
+
+//create function timerSeconds
+function countTimerSeconds() {
+    secondsLeft--;
+    $('#timer').html("Time Remaining " + secondsLeft);
+    console.log(secondsLeft)
+    if (secondsLeft === 0) {
+        gameDone();
+    }
+}
+
+
+
+function gameDone() {
+    clearInterval(timerHandle);
     var checkedAnswer;
     for (k = 0; k < questionList.length; k++) {
         checkedAnswer = $('.i' + k + ':checked');
         console.log(checkedAnswer);
         console.log(checkedAnswer.val());
-        if (checkedAnswer.val() == questionList[k].answer) {
-            gotRight++;
-        } else {
-            gotWrong++;
+        console.log((checkedAnswer.val() === undefined));
+        if (!(checkedAnswer.val() === undefined)) {
+            if (checkedAnswer.val() == questionList[k].answer) {
+                gotRight++;
+            } else {
+                gotWrong++;
+            }
         }
     }
+    unanswered = questionList.length - gotRight - gotWrong;
+    console.log(unanswered);
     $('#questions').toggle();
     $('.allDone').toggle();
     $('#right').html(gotRight);
     $('#wrong').html(gotWrong);
-    $('#unanswered').html(unanswered)
-    gotRight = 0;
-    gotWrong = 0;
-    unanswered = 0;
+    $('#unanswered').html(unanswered);
 }
+
