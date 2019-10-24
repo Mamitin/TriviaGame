@@ -11,32 +11,36 @@ body {
     text-align: center;
     color: orange;
     font-family: 'Rock Salt', cursive;
+    word-spacing: 10px;
+    letter-spacing: 2px;
     background: rgba(237, 237, 243, .7);
-    width: 100%;
+    width: 90%;
+    height: 40%;
     border-radius: 5px;
     margin-left: 5%;
    /*padding-top: 50px;*/
     margin-top: 50px;
+    padding-top: 40px;
     border: 5px;
 }
 
 #questions {
     text-align: center;
     color: black;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bolder;
     font-family: 'Rock Salt', cursive;
     background: rgba(237, 237, 243, .7);
     width: 90%;
     border-radius: 5px;
     margin-left: 5%;
-    padding-top: 50px;
+    /*padding-top: 50px;
     padding-bottom: 50px;
-    margin-top: 50px;
+    margin-top: 50px;*/
     margin-bottom: 40px;
     border: 5px;
     line-height: 300%;
-    word-spacing: 20px;
+    word-spacing: 10px;
     letter-spacing: 2px;
     /*text-shadow:
 		-1px -1px 0 orange,
@@ -45,11 +49,41 @@ body {
 		1px 1px 0 orange;*/
 }
 
+div#container {
+    padding-bottom: 20px;
+}
+
 #startButton {
     background: sandybrown;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    letter-spacing: 2px;
 }
 
 #answer {
     background: sandybrown;
     margin-top: 40px;
+    margin-bottom: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+    letter-spacing: 2px;
+}
+
+.allDone {
+    text-align: center;
+    color: orange;
+    font-family: 'Rock Salt', cursive;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+    background: rgba(237, 237, 243, .7);
+    width: 90%;
+    height: 40%;
+    border-radius: 5px;
+    margin-left: 5%;
+   /*padding-top: 50px;*/
+    margin-top: 50px;
+    padding-top: 40px;
+    border: 5px;
 }

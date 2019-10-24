@@ -1,6 +1,7 @@
 //create vars
 var gotRight = 0;
 var gotWrong = 0;
+var unanswered = 0;
 var secondsLeft = 60;
 var timerHandle;
 
@@ -20,22 +21,25 @@ $(document).ready(function () {
 //create funtion startGame
 function startGame() {
     console.log("startGame works");
-var questionEl = '';
-var elPossibilities = [];
-//create for loop to iterate through the question & possibilities
-for (i = 0; i < questionList.length; i++) {''
-questionEl += '<div class="question" id="q' + i + '">' + questionList[i].question + "</br>";
-elPossibilities = questionList[i].possibilities;
-for (j = 0; j < elPossibilities.length; j++) {
-    questionEl +=  '<input type="radio" class="i' + i + '" value="' + j + '">' + elPossibilities[j] + '</input>' + " ";
-}
-timerSeconds();    
-    
-questionEl += '</div>';
-    //console.log(questionEl);
-}
-questionEl += '<button id="answer">Answer</button>';
-$('#questions').html(questionEl);
+    var questionEl = '';
+    var elPossibilities = [];
+    //create for loop to iterate through the question & possibilities
+    for (i = 0; i < questionList.length; i++) {
+        ''
+        questionEl += '<div class="question" id="q' + i + '">' + questionList[i].question + "</br>";
+        elPossibilities = questionList[i].possibilities;
+        for (j = 0; j < elPossibilities.length; j++) {
+            questionEl += '<input type="radio" class="i' + i + '" value="' + j + '">' + elPossibilities[j] + '</input>' + " ";
+        }
+        
+        questionEl += '</div>';
+        //console.log(questionEl);
+    }
+    //timerSeconds();
+
+
+    questionEl += '<button id="answer">Answer</button>';
+    $('#questions').html(questionEl);
 
 }
 
@@ -88,14 +92,14 @@ var questionList = [
         question: "What is the name of the clown on Channel 6?",
         possibilities: ['Gabbo', 'Krusty', 'Bonko'],
         answer: 1
-}]
+    }]
 
 
 //create function gameListeners
 function gameListeners() {
     console.log("gameListeners works");
-$('#answer').click(gameSubmit);
-$('#startButton').click(gameGo);
+    $('#answer').click(gameSubmit);
+    $('#startButton').click(gameGo);
 }
 
 //create function gameGo
@@ -106,11 +110,12 @@ function gameGo() {
 }
 
 //create function timerSeconds
-function timerSeconds() {
+/*function timerSeconds() {
     //setTimeout(timerSeconds, 1000);
     console.log("timerSeconds works");
-//create if or else statements within timerSeconds function
-    if(secondsLeft < 0) {
+    //create if or else statements within timerSeconds function
+    if (secondsLeft < 0) {
+        intervalId = setInterval(timer.count, 60000);
         $('#gamePanel').toggle();
         $('#allDone').toggle();
         gotRight = 0;
@@ -120,19 +125,19 @@ function timerSeconds() {
         clearInterval(timerHandle);
     } else {
         $('#timer').html(secondsLeft);
-        secondsLeft = secondsLeft -1;
-    }    
-}
+        secondsLeft = secondsLeft - 1;
+    }
+}*/
 
 //create function gameSubmit
-function gameSubmit () {
+function gameSubmit() {
     console.log("gameSubmit works");
     var checkedAnswer;
     for (k = 0; k < questionList.length; k++) {
-        checkedAnswer = $('.i'+k+':checked');
+        checkedAnswer = $('.i' + k + ':checked');
         console.log(checkedAnswer);
         console.log(checkedAnswer.val());
-        if(checkedAnswer.val() == questionList[k].answer) {
+        if (checkedAnswer.val() == questionList[k].answer) {
             gotRight++;
         } else {
             gotWrong++;
@@ -142,6 +147,8 @@ function gameSubmit () {
     $('.allDone').toggle();
     $('#right').html(gotRight);
     $('#wrong').html(gotWrong);
+    $('#unanswered').html(unanswered)
     gotRight = 0;
     gotWrong = 0;
+    unanswered = 0;
 }
