@@ -1,7 +1,7 @@
 //create vars
-var gotRight = 0;
-var gotWrong = 0;
-var unanswered = 0;
+var gotRight;
+var gotWrong;
+var unanswered;
 var secondsLeft = 7;
 var timerHandle;
 
@@ -129,20 +129,23 @@ function countTimerSeconds() {
 function gameDone() {
     clearInterval(timerHandle);
     var checkedAnswer;
+    gotRight = 0;
+    gotWrong = 0;
+    unanswered = 0;
     for (k = 0; k < questionList.length; k++) {
         checkedAnswer = $('.i' + k + ':checked');
         console.log(checkedAnswer);
         console.log(checkedAnswer.val());
         console.log((checkedAnswer.val() === undefined));
-        if (!(checkedAnswer.val() === undefined)) {
-            if (checkedAnswer.val() == questionList[k].answer) {
-                gotRight++;
-            } else {
-                gotWrong++;
-            }
+        if (checkedAnswer.val() === undefined) {
+            unanswered++;
+        } else if (checkedAnswer.val() == questionList[k].answer) {
+            gotRight++;
+        } else {
+            gotWrong++;
         }
     }
-    unanswered = questionList.length - gotRight - gotWrong;
+    //unanswered = questionList.length - gotRight - gotWrong;
     console.log(unanswered);
     $('#questions').toggle();
     $('.allDone').toggle();
