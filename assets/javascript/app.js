@@ -2,11 +2,12 @@
 var gotRight;
 var gotWrong;
 var unanswered;
-var secondsLeft = 7;
+var secondsLeft = 35;
 var timerHandle;
 
 //start game after page finishes loading
 $(document).ready(function () {
+   // $("#simpsonImg").html('<img src="/assets/css/images/simpsons.jpg" id="simpsonsImg"/>');
     //create toggle
     $('#questions').toggle();
     $('.allDone').toggle();
@@ -117,7 +118,7 @@ function timerSeconds() {
 //create function timerSeconds
 function countTimerSeconds() {
     secondsLeft--;
-    $('#timer').html("Time Remaining " + secondsLeft);
+    $('#timer').html("Time Remaining: " + secondsLeft);
     console.log(secondsLeft)
     if (secondsLeft === 0) {
         gameDone();
