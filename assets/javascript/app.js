@@ -2,7 +2,7 @@
 var gotRight;
 var gotWrong;
 var unanswered;
-var secondsLeft = 35;
+var secondsLeft = 5;
 var timerHandle;
 
 //start game after page finishes loading
@@ -104,8 +104,8 @@ function gameListeners() {
 function gameGo() {
     console.log("gameGo works");
     $('#splash').toggle();
-    $('#questions').toggle();
     timerSeconds();
+    $('#questions').toggle();
 }
 
 
@@ -129,15 +129,16 @@ function countTimerSeconds() {
 
 function gameDone() {
     clearInterval(timerHandle);
+    $('#timer').hide()
     var checkedAnswer;
     gotRight = 0;
     gotWrong = 0;
     unanswered = 0;
     for (k = 0; k < questionList.length; k++) {
         checkedAnswer = $('.i' + k + ':checked');
-        console.log(checkedAnswer);
-        console.log(checkedAnswer.val());
-        console.log((checkedAnswer.val() === undefined));
+        //console.log(checkedAnswer);
+        //console.log(checkedAnswer.val());
+        //console.log((checkedAnswer.val() === undefined));
         if (checkedAnswer.val() === undefined) {
             unanswered++;
         } else if (checkedAnswer.val() == questionList[k].answer) {
