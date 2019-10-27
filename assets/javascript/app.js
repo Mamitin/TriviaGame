@@ -27,20 +27,20 @@ function startGame() {
         questionEl += '<div class="question" id="q" + i + >' + questionList[i].question + "</br>";
         elPossibilities = questionList[i].possibilities;
         for (j = 0; j < elPossibilities.length; j++) {
-            questionEl += '<input type="radio" class="i' + i + '" value="' + j + '">' + elPossibilities[j] + '</input>' + " ";
+            questionEl += '<input type="radio" class="i' + i + '" name="' + j + '"value"' + j + '">' + elPossibilities[j] + '</input>' + " ";
         }
         questionEl += '</div>';
         //console.log(questionEl);        
     }
 
-    $('input:radio').click(function(){
-        $('input:radio').not(this).prop('checked', false);
-    });
+    /*$('input:radio').click(function(){
+        $('input:radio').not(this).prop('checked', false);*/
+    
 
     questionEl += '<button id="answer">Answer</button>';
     $('#questions').html(questionEl);
 
-}
+};
 
 //create var for question list
 var questionList = [
