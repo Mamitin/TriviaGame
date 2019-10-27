@@ -18,22 +18,19 @@ $(document).ready(function () {
 
 //create funtion startGame
 function startGame() {
-    console.log("startGame works");
     var questionEl = '';
     var elPossibilities = [];
     //create for loop to iterate through the question & possibilities
     for (i = 0; i < questionList.length; i++) {
-        questionEl += '<div class="question" id="q" + i + >' + questionList[i].question + "</br>";
+        questionEl += '<div class="question" id="q" + i >' + questionList[i].question + "</br>";
         elPossibilities = questionList[i].possibilities;
         for (j = 0; j < elPossibilities.length; j++) {
-            questionEl += '<input type="radio" class="i' + i + '" name="' + i + '"value"' + j + '">' + elPossibilities[j] + '</input>' + " ";
-            console.log("input");
+            questionEl += '<input type="radio" class="i' + i + ' "name="' + i + '" value="' + j + ' ">' + elPossibilities[j] + '</input>';
         }
         questionEl += '</div>';
-          
     }
-    
-    //generate anser button
+
+    //generate answer button
     questionEl += '<button id="answer">Answer</button>';
     $('#questions').html(questionEl);
 
@@ -93,14 +90,12 @@ var questionList = [
 
 //create function gameListeners
 function gameListeners() {
-    console.log("gameListeners works");
     $('#answer').click(gameDone);
     $('#startButton').click(gameGo);
 }
 
 //create function gameGo
 function gameGo() {
-    console.log("gameGo works");
     $('#splash').toggle();
     timerSeconds();
     $('#questions').toggle();
@@ -116,7 +111,6 @@ function timerSeconds() {
 function countTimerSeconds() {
     secondsLeft--;
     $('#timer').html("Time Remaining: " + secondsLeft);
-    console.log(secondsLeft)
     if (secondsLeft === 0) {
         gameDone();
     }
@@ -141,7 +135,7 @@ function gameDone() {
             gotWrong++;
         }
     }
-    //unanswered = questionList.length - gotRight - gotWrong;
+    //unanswered = questionList.length - gotRight - gotWrong
     $('#questions').toggle();
     $('.allDone').toggle();
     $('#right').html(gotRight);
