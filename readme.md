@@ -15,7 +15,8 @@ This project was built with JavaScript, jQuery, HTML, and CSS. Most all of the H
 ## Game in action: 
 <img src="/assets/images/TriviaGame.gif" width="500px" height="250px"/>
 
-## Important code snippit:
+## Important code snippit: 
+This particaular code generates the timer for the game.
 <img src="assets/images/snipIt.PNG">
 
 ## Currently working with:
@@ -37,7 +38,7 @@ This project was built with JavaScript, jQuery, HTML, and CSS. Most all of the H
 - [Wireframe](https://github.com/Mamitin/HW-Wireframe/blob/master/index.html)
 - [Bootstrap Portfolio](https://github.com/Mamitin/Bootstrap-Portfolio/blob/master/index.html)
 - [Crytal Collector](https://mamitin.github.io/unit-4-game/blob/master/index.html)
-- [Simpson Trivia Game]()
+- [Simpson Trivia Game](https://github.com/Mamitin/TriviaGame)
 
 ## Contributing
 Please find me on [Linkedin](https://www.linkedin.com/in/monica-amitin-58635475/).
