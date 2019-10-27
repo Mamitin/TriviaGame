@@ -27,14 +27,12 @@ function startGame() {
         questionEl += '<div class="question" id="q" + i + >' + questionList[i].question + "</br>";
         elPossibilities = questionList[i].possibilities;
         for (j = 0; j < elPossibilities.length; j++) {
-            questionEl += '<input type="radio" class="i' + i + '" name="' + j + '"value"' + j + '">' + elPossibilities[j] + '</input>' + " ";
+            questionEl += '<input type="radio" class="i' + i + '" name="' + i + '"value"' + j + '">' + elPossibilities[j] + '</input>' + " ";
+            console.log("input");
         }
         questionEl += '</div>';
-        //console.log(questionEl);        
+          
     }
-
-    /*$('input:radio').click(function(){
-        $('input:radio').not(this).prop('checked', false);*/
     
 
     questionEl += '<button id="answer">Answer</button>';
@@ -137,9 +135,7 @@ function gameDone() {
     unanswered = 0;
     for (k = 0; k < questionList.length; k++) {
         checkedAnswer = $('.i' + k + ':checked');
-        //console.log(checkedAnswer);
-        //console.log(checkedAnswer.val());
-        //console.log((checkedAnswer.val() === undefined));
+    
         if (checkedAnswer.val() === undefined) {
             unanswered++;
         } else if (checkedAnswer.val() == questionList[k].answer) {
@@ -149,7 +145,6 @@ function gameDone() {
         }
     }
     //unanswered = questionList.length - gotRight - gotWrong;
-    console.log(unanswered);
     $('#questions').toggle();
     $('.allDone').toggle();
     $('#right').html(gotRight);
