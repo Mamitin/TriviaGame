@@ -24,17 +24,18 @@ function startGame() {
     var elPossibilities = [];
     //create for loop to iterate through the question & possibilities
     for (i = 0; i < questionList.length; i++) {
-        ''
-        questionEl += '<div class="question" id="q' + i + '">' + questionList[i].question + "</br>";
+        questionEl += '<div class="question" id="q" + i + >' + questionList[i].question + "</br>";
         elPossibilities = questionList[i].possibilities;
         for (j = 0; j < elPossibilities.length; j++) {
             questionEl += '<input type="radio" class="i' + i + '" value="' + j + '">' + elPossibilities[j] + '</input>' + " ";
         }
         questionEl += '</div>';
-        //console.log(questionEl);
+        //console.log(questionEl);        
     }
 
-
+    $('input:radio').click(function(){
+        $('input:radio').not(this).prop('checked', false);
+    });
 
     questionEl += '<button id="answer">Answer</button>';
     $('#questions').html(questionEl);
