@@ -43,4 +43,3 @@ This particaular code generates the timer for the game.
 
 ## Contributing
 Please find me on [Linkedin](https://www.linkedin.com/in/monica-amitin-58635475/).
-]
