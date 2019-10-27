@@ -2,12 +2,11 @@
 var gotRight;
 var gotWrong;
 var unanswered;
-var secondsLeft = 45;
+var secondsLeft = 60;
 var timerHandle;
 
 //start game after page finishes loading
 $(document).ready(function () {
-   // $("#simpsonImg").html('<img src="/assets/css/images/simpsons.jpg" id="simpsonsImg"/>');
     //create toggle
     $('#questions').toggle();
     $('.allDone').toggle();
@@ -34,13 +33,13 @@ function startGame() {
           
     }
     
-
+    //generate anser button
     questionEl += '<button id="answer">Answer</button>';
     $('#questions').html(questionEl);
 
 };
 
-//create var for question list
+//create var thats holds array of question, possible answers and answer list
 var questionList = [
     //create question
     {
@@ -113,7 +112,6 @@ function timerSeconds() {
     timerHandle = setInterval(countTimerSeconds, 1000)
 }
 
-
 //create function timerSeconds
 function countTimerSeconds() {
     secondsLeft--;
@@ -125,7 +123,7 @@ function countTimerSeconds() {
 }
 
 
-
+//create gameDone function
 function gameDone() {
     clearInterval(timerHandle);
     $('#timer').hide()

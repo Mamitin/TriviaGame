@@ -17,6 +17,7 @@ This project was built with JavaScript, jQuery, HTML, and CSS. Most all of the H
 
 ## Important code snippit: 
 This particaular code generates the timer for the game.
+
 <img src="assets/images/snipIt.PNG">
 
 ## Currently working with:
