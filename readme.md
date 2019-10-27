@@ -13,10 +13,10 @@ This project was built with JavaScript, jQuery, HTML, and CSS. Most all of the H
 - When the game ends, your score will be displayed for you.
 
 ## Game in action: 
-
+<img src="/assets/images/TriviaGame.gif" width="500px" height="250px"/>
 
 ## Important code snippit:
-
+<img src="assets/images/snipIt.PNG">
 
 ## Currently working with:
 

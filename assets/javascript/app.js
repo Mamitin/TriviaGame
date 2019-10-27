@@ -2,7 +2,7 @@
 var gotRight;
 var gotWrong;
 var unanswered;
-var secondsLeft = 5;
+var secondsLeft = 45;
 var timerHandle;
 
 //start game after page finishes loading
@@ -135,7 +135,6 @@ function gameDone() {
     unanswered = 0;
     for (k = 0; k < questionList.length; k++) {
         checkedAnswer = $('.i' + k + ':checked');
-    
         if (checkedAnswer.val() === undefined) {
             unanswered++;
         } else if (checkedAnswer.val() == questionList[k].answer) {
